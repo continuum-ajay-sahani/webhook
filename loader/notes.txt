@@ -1,0 +1,4 @@
+echo "POST http://localhost:9080/action" | vegeta attack -duration=120s -rate=1000 | tee results.bin | vegeta report
+  vegeta report -type=json results.bin > metrics.json
+  cat results.bin | vegeta plot > plot.html
+  cat results.bin | vegeta report -type="hist[0,40s,80s,110s]"
